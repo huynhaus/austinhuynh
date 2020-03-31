@@ -28,10 +28,14 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles/styles.sass",
-              "./node_modules/uikit/dist/css/uikit.min.css",
-              "./node_modules/uikit/dist/css/uikit-core.min.css"
+              "src/styles/styles.sass"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/styles",
+                "./node_modules/uikit/src/scss"
+              ]
+            },
             "scripts": [
               "./node_modules/jquery/dist/jquery.min.js",
               "./node_modules/uikit/dist/js/uikit.min.js",
@@ -98,10 +102,14 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles/styles.sass",
-              "./node_modules/uikit/dist/css/uikit.min.css",
-              "./node_modules/uikit/dist/css/uikit-core.min.css"
+              "src/styles/styles.sass"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/styles",
+                "./node_modules/uikit/src/scss"
+              ]
+            },
             "scripts": [
               "./node_modules/jquery/dist/jquery.min.js",
               "./node_modules/uikit/dist/js/uikit.min.js",
