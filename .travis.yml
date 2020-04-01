@@ -11,7 +11,7 @@ before_script:
   - npm install -g @angular/cli
 script:
 - ng lint
-- ng build --prod --base-href https://www.austinhuynh.com/
+- ng build --prod
 
 notifications:
   email: false
