@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Album } from '../_models/album';
+import { LibraryService } from '../_services/library.service';
+import { Library } from '../_models/library';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-gallery',
@@ -7,9 +11,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GalleryComponent implements OnInit {
 
-  constructor() { }
+  library: Library;
+
+  constructor(private libraryService: LibraryService) { }
 
   ngOnInit(): void {
+    this.libraryService.getLibrary().subscribe(
+      (library: Library) => { this.library = library; },
+      (error: HttpErrorResponse) => { this.library = null } // TODO ERROR / EMPTY STATE
+    );
   }
 
 }
