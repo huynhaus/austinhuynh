@@ -57,9 +57,28 @@ figure:hover+span
 	bottom: -36px
 	opacity: 1
 
-
+.links
+	display: flex
+	
 .links .link
 	font-size: 26px
 	
 .links .link:hover
 	color: red !important
+
+.padded-content	
+	padding-right: 33%
+	
+.image-header
+	flex: 30%
+
+.image-container
+	flex: 70%
+	cursor: pointer
+	
+@media only screen and (max-width: 835px)
+	.padded-content
+		padding-right: 0
+		
+	.links
+		display: inline-block
