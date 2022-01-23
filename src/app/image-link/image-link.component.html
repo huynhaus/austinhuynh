@@ -1,0 +1,15 @@
+<div
+    class="container"
+    [class.hover]="hover"
+    (mouseover)="hover=true"
+    (mouseout)="hover=false"
+>
+	<div class="title-container">
+		<a (click)="route()">{{title}}</a>
+	</div>
+	<div class="image-container">
+		<figure>
+			<img src="{{imgSrc}}" />
+		</figure>
+	</div>
+</div>

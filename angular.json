@@ -31,14 +31,11 @@
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
-                "src/styles",
-                "./node_modules/uikit/src/scss"
+                "src/styles"
               ]
             },
             "scripts": [
-              "./node_modules/jquery/dist/jquery.min.js",
-              "./node_modules/uikit/dist/js/uikit.min.js",
-              "./node_modules/uikit/dist/js/uikit-icons.min.js"
+              "./node_modules/jquery/dist/jquery.min.js"
             ],
             "vendorChunk": true,
             "extractLicenses": false,
@@ -112,14 +109,11 @@
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
-                "src/styles",
-                "./node_modules/uikit/src/scss"
+                "src/styles"
               ]
             },
             "scripts": [
-              "./node_modules/jquery/dist/jquery.min.js",
-              "./node_modules/uikit/dist/js/uikit.min.js",
-              "./node_modules/uikit/dist/js/uikit-icons.min.js"
+              "./node_modules/jquery/dist/jquery.min.js"
             ]
           }
         },

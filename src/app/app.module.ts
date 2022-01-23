@@ -4,17 +4,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
-import { GalleryComponent } from './gallery/gallery.component';
 import { HttpClientModule } from '@angular/common/http';
-import { AlbumCardComponent } from './album-card/album-card.component';
+import { QuoteComponent } from './quote/quote.component';
+import { ImageLinkComponent } from './image-link/image-link.component';
+import { LogsPageComponent } from './logs-page/logs-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     HeaderComponent,
-    GalleryComponent,
-    AlbumCardComponent
+    QuoteComponent,
+    ImageLinkComponent,
+    LogsPageComponent
   ],
   imports: [
     BrowserModule,

@@ -1,9 +1,0 @@
-<h1 class="uk-margin-medium-bottom">Gallery</h1>
-
-
-<div class="uk-child-width-1-3@m" uk-grid *ngIf="library != null">
-    <app-album-card
-        *ngFor="let album of library?.albums"
-        [album]="album">
-    </app-album-card>
-</div>

@@ -1,27 +1,21 @@
-/* Custom Variables */
-@import 'variables'
-@import 'mixins'
-@import 'custom'
-/* UIKit */
-@import "../../node_modules/uikit/src/scss/variables"
-@import "../../node_modules/uikit/src/scss/mixins"
-@import "../../node_modules/uikit/src/scss/uikit"
-
-//img
-//  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
-
-*
+@font-face
   font-family: 'proximanova-regular'
+  src: url('../assets/font/proxima/ProximaNova-Reg-webfont.woff2') format('opentype')
+  
+*
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,"Apple Color Emoji","Segoe UI Emoji",Segoe UI Symbol,"Noto Color Emoji"
+  font-weight: 400
 
 body
   color: #2D3142
 
-a, a:hover
-  color: #2D3142
+h1
+  font-size: 2.625rem
+  line-height: 1.2
+  margin: 0 0 20px
+  color: #333
 
-
-// 2D3142
-// 4F5D75
-// BFC0C0
-// FFFFFF
-// EF8354
+h2
+  font-size: 2rem
+  line-height: 1.3
+  margin-top: 40px
