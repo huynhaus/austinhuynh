@@ -1,4 +1,42 @@
 <section>
+    <h1>Setting up an API</h1>
+    <h2>2022-02-07</h2>
+</section>
+
+<section>
+    The next thing I'd like to work on is setting up an api. I'll eventually need this for the following projects:
+    <ul>
+        <li>Hosting a media server</li>
+        <li>My rubix cube timer project</li>
+        <li>Storing these log posts in a database</li>
+    </ul>
+    Here is the game plan going into the api:
+    <ol>
+        <li>Create Spring boot api locally (I have plenty of experience using the <a href="https://start.spring.io/">spring initializr</a> so this should be straight forward)</li>
+        <li>Figure out how to deploy api to AWS  According to the internet, I should deploy my api using Elastic Beanstalk)</li>
+        <li>Configure domain so api can be hosted on api.austinhuynh.com or austinhuynh.com/api (I'm not looking forward to this since I've never been able to do it in the past)</li>
+        <li>Connect front end to backend</li>
+        <li>Setup security (perhaps OAuth?)</li>
+    </ol>
+</section>
+
+<section>
+    As expected, setting up the api locally and getting the api deployed to AWS was straight forward. Getting the domain configured to handle
+    a front end and a backend also went as expected: not great. It took me a while to figure out what I wanted to google, which was "how to host
+    multiple origins from cloud front". I learned that there would be more problems for me if I were to use a subdomain like "api.austinhuynh.com"
+    regarding SSL certificates and CORS policies (the worst). Although my preference is "what ever would be easier", I like the "austinhuynh.com/api/*"
+    approach since that's what my work does for a lot of their stuff.
+</section>
+
+<section>
+    All of that work just so I can see this beautiful response: <span [class.success]="success" [class.fail]="!success">{{response}}</span>
+</section>
+
+<section>
+    Side note: I want to try to recreate the wordle game along with a tool to help pick words. Add it to the list! Side side note: create a list or todo page.
+</section>>
+
+<section>
     <h1>Rinse and repeat</h1>
     <h2>2022-01-23</h2>
 </section>

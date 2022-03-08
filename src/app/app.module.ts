@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { QuoteComponent } from './quote/quote.component';
 import { ImageLinkComponent } from './image-link/image-link.component';
 import { LogsPageComponent } from './logs-page/logs-page.component';
+import { WordleComponent } from './wordle/wordle.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { LogsPageComponent } from './logs-page/logs-page.component';
     HeaderComponent,
     QuoteComponent,
     ImageLinkComponent,
-    LogsPageComponent
+    LogsPageComponent,
+    WordleComponent
   ],
   imports: [
     BrowserModule,
