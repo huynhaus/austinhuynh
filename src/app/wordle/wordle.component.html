@@ -1,0 +1,15 @@
+<div id="guesses" *ngIf="game">
+    <div *ngFor="let guess of game.guesses" class="guess">
+        <div *ngFor="let letter of guess.letters" [attr.data-state]="letter.state" class="letter">
+            {{letter.value !== null ? letter.value : '\u00A0'}}
+        </div>
+    </div>
+</div>
+
+<div id="keyboard">
+    <div *ngFor="let row of qwerty" class="row">
+        <span *ngFor="let letter of row.split('')" class="keyboard-letter" id="{{'letter-' + letter}}">
+            {{letter}}
+        </span>
+    </div>
+</div>
