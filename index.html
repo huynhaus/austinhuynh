@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+			<title>Austin Huynh</title>
+			<base href="/">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
+		
+		<style>
+			@font-face {
+				font-family: 'proximanova-regular';
+				src: url('../assets/font/proxima/ProximaNova-Reg-webfont.woff2') format('opentype');
+			}
+			
+			* {
+				font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,"Apple Color Emoji","Segoe UI Emoji",Segoe UI Symbol,"Noto Color Emoji";
+				font-weight: 400;
+			}
+			
+			body {
+				color: #2D3142;
+			}
+
+			main {
+				margin-top: 8rem;
+				margin-bottom: 8rem;
+			}
+
+			h1 {
+				font-size: 2.625rem;
+				line-height: 1.2;
+				margin: 0 0 20px;
+				color: #333;
+			}
+
+			h2 {
+				font-size: 2rem;
+				line-height: 1.3;
+				margin-top: 40px;
+			}
+			  
+			.container {
+				max-width: 50rem;
+				margin-right: auto;
+				margin-left: auto;
+			}
+
+			@media only screen and (max-width: 835px) {
+				.container {
+					padding: 1rem;
+				}
+			}
+			
+			.highlight {
+				color: #FFF;
+				background-color: #f44336;
+				padding-left: 0.25rem;
+				padding-right: 0.25rem;
+			}
+			
+			section {
+				padding-right: 40%;
+			}
+				
+			@media only screen and (max-width: 835px) {
+				section {
+					padding-right: 0;
+				}
+			}
+			
+			.quote-container {
+				border-top: solid 1px;
+				border-bottom: solid 1px;
+				margin-top: 4rem;
+				margin-bottom: 4rem;
+			}
+			
+			.quote {
+				position: relative;
+				font-family: 'Montserrat', sans-serif;
+				font-weight: 800;
+				padding: 2.5rem 0;
+				z-index: 1;
+				opacity: 1;
+				transition: opacity 0.5s; 
+			}
+			
+			.quote.hide {
+				opacity: 0;
+			}
+			
+			.quote h3 {
+				font-size: 40px;
+				font-weight: 800;
+				line-height: 1;
+				margin: 0;
+			}
+
+			.quote:after {
+				position: absolute;
+				content: "”";
+				color: #000;
+				font-size: 5rem;
+				line-height: 0;
+				bottom: -15px;
+				right: 30px;
+			}
+
+			.quote h4 {
+				position: relative;
+				color: #292a2b;
+				font-size: 1.4rem;
+				font-weight: normal;
+				line-height: 1;
+				margin: 0;
+				padding-top: 20px;
+				z-index: 1;
+			}
+		</style>
+	</head>
+	<body>
+		<main>
+			<div class="container">
+				<section style="margin-bottom: 4rem;">
+					<div>
+						<h1>Hello, I'm <span class="highlight">Austin</span>.</h1>
+						<h2>I'm a <span class="highlight">software developer</span> from Michigan. I write code, travel, and play tennis.</h2>
+					</div>
+				</section>
+
+				<section>					
+					<p>
+						I've been writing code for over a decade. I currently work for a Fortune 500 company as a full stack web developer using Springboot, Angular, SQL Server, and Openshift. I typically write web applications and integrations for internal or external use. I focus on writing readable, maintainable, and simple (when possible) code. I'm passionate about learning more and improving my own skills.
+					</p>
+				</section>
+
+				<div class="quote-container">
+					<div class="quote">
+						<h3>If you can't explain it to a six year old, you don't understand it yourself.</h3>
+						<h4>&mdash;Albert Einstein</h4>
+					</div>
+				</div>
+			</div>
+		</main>
+	</body>
+	
+	<script>
+		var quotes = [
+			{ text: 'If you can\'t explain it to a six year old, you don\'t understand it yourself.', author: 'Albert Einstein' },
+			{ text: 'It\'s not enough for code to work.', author: 'Robert C. Martin' }
+		];
+		
+		setInterval(() => {
+			var quote = quotes[Math.floor(Math.random() * quotes.length)];
+			var quoteNode = document.getElementsByClassName('quote')[0];
+			quoteNode.classList.add('hide');
+			
+			setTimeout(() => {
+				quoteNode.getElementsByTagName('h3')[0].innerHTML = quote.text;
+				quoteNode.getElementsByTagName('h4')[0].innerHTML = '-' + quote.author;
+				quoteNode.classList.remove('hide');
+			}, 500);
+		}, 20000);
+	</script>
+</html>
