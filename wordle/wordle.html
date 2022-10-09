@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <title>Wordle</title>
+    <link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
 	<style>
 		html {
 			font-family: Arial, Helvetica, sans-serif;
@@ -25,6 +26,7 @@
 			padding: 8px;
 			background: #d3d6da;
 			border-radius: 4px;
+            cursor: pointer;
 		}
 		
 		.letter {
@@ -93,6 +95,12 @@
 			font-size: 24px;
 			margin-bottom: 24px;
 		}
+
+        .play-again {
+            margin-top: 8px;
+            padding: 8px;
+            background-color: #FFFFFF;
+        }
 	</style>
   </head>
   <body>
@@ -118,14 +126,26 @@
  	
 	var NUMBER_OF_GUESSES = 6;
 	var LETTERS_PER_WORD = 5;
-	var currentRow = 0;
-	var currentCol = 0;
-	var gameCompleted = false;
-	
-	var word = getRandomWord(possibilities);
-	var keyboard = drawKeyBoard();
-	document.addEventListener('keydown', handleKeyPress);
-	var matrix = setupMatrix(NUMBER_OF_GUESSES, LETTERS_PER_WORD);
+    var currentRow;
+    var currentCol;
+    var gameCompleted;
+    var word;
+    var matrix;
+    var keyboard;
+
+    function restart() {
+        document.getElementById('keyboard').replaceChildren();
+        document.getElementById('guesses').replaceChildren();
+
+        currentRow = 0;
+        currentCol = 0;
+        gameCompleted = false;
+
+        word = getRandomWord(possibilities);
+        keyboard = drawKeyBoard();
+        document.addEventListener('keydown', handleKeyPress);
+        matrix = setupMatrix(NUMBER_OF_GUESSES, LETTERS_PER_WORD);
+    }
 	
 	function getRandomWord(words) {
 		return words[Math.floor(Math.random() * (words.length - 1))].toUpperCase();
@@ -133,15 +153,24 @@
 	
 	function drawKeyBoard() {
 		var keyboard = document.getElementById('keyboard');
-		var qwerty = ['QWERTYUIOP', 'ASDFGHJKL', 'ZXCVBNM'];
+		var qwerty = ['QWERTYUIOP', 'ASDFGHJKL', '+ZXCVBNM-'];
 		qwerty.forEach(row => {
 			var div = document.createElement('div');
 			div.classList.add('row');
 			row.split('').forEach(letter => {
 				var span = document.createElement('span');
-				span.append(document.createTextNode(letter));
-				span.id = 'letter-' + letter;
-				span.classList.add('keyboard-letter');
+                if (letter === '-') {
+                    span.append(document.createTextNode('\u21E6'));
+                    span.addEventListener('click', () => handleKeyPress({ keyCode: 8 }));
+                } else if (letter === '+') {
+                    span.append(document.createTextNode('\u23CE'));
+                    span.addEventListener('click', () => handleKeyPress({ keyCode: 13 }));
+                } else {
+                    span.append(document.createTextNode(letter));
+                    span.addEventListener('click', () => handleKeyPress({ keyCode: letter.charCodeAt(), key: letter }));
+                }
+                span.id = 'letter-' + letter;
+                span.classList.add('keyboard-letter');
 				div.appendChild(span);
 			});
 			keyboard.appendChild(div);
@@ -231,7 +260,7 @@
 		}
 	}
 	
-	function showMessage(text, timeout = 0) {	
+	function showMessage(text, timeout = 0) {
 		var messageContainer;
 		if (document.getElementById('message-container')) {
 			// Container already exists
@@ -246,6 +275,19 @@
 		var message = document.createElement('div');
 		message.classList.add('message');
 		message.append(document.createTextNode(text));
+
+
+        if (timeout === 0) {
+            // Add a play again button
+            var div = document.createElement('div');
+            var button = document.createElement('button');
+            button.classList.add('play-again');
+            button.textContent = 'Play Again';
+            button.addEventListener('click', () => { restart(); clearMessage(); });
+            div.append(button);
+            message.append(div);
+        }
+
 		messageContainer.append(message);
 		
 		if (timeout > 0) {
@@ -266,5 +308,7 @@
 			document.getElementById('message-container').remove();
 		}
 	}
+
+    restart();
   </script>
 </html>
